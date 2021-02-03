@@ -1,5 +1,6 @@
 package com.okmall.spring.controller;
 
+import com.okmall.spring.component.validation.RepeatedField;
 import com.okmall.spring.domain.Account;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@RepeatedField(field = "password")
 @Getter
 @Setter
 @ToString
