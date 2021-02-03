@@ -1,0 +1,14 @@
+# MyBatis settings
+mybatis:
+  type-aliases-package: com.okmall.spring.domain
+
+# Spring Transaction management settings
+spring:
+  transaction:
+    default-timeout: 10
+    rollback-on-commit-failure: true
+
+# Logging settings
+logging:
+  level:
+    com.okmall.spring: TRACE

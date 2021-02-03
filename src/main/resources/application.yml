@@ -1,2 +1,9 @@
 server:
   port: 8100
+
+spring:
+  datasource:
+    url: jdbc:hsqldb:file:~/db/jpetstore2
+
+  profiles:
+    include: common

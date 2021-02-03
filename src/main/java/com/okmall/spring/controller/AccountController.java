@@ -2,6 +2,7 @@ package com.okmall.spring.controller;
 
 import com.okmall.spring.component.message.Messages;
 import com.okmall.spring.domain.Account;
+import com.okmall.spring.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,8 @@ public class AccountController {
 
     public static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
+    private final AccountService accountService;
+
     @ModelAttribute
     public AccountForm setUpForm() {
         return new AccountForm();
@@ -40,13 +43,14 @@ public class AccountController {
 
         Account account = form.toAccount();
         logger.error(account.toString());
+
         if (result.hasErrors()) {
             model.addAttribute(
                     new Messages().error("Input values are invalid. Please confirm error messages."));
             return createForm();
         }
 
-//        accountService.createAccount(account);
+        accountService.createAccount(account);
 
         redirectAttributes.addFlashAttribute(
                 new Messages().success("Your account has been created. Please try login !!"));
